@@ -7,20 +7,26 @@ public class HashTagTokenizer {
 		String hashTag = args[0];
 		String []dictionary = readDictionary("dictionary.txt");
 		breakHashTag(hashTag, dictionary);
+		
 	}
 
 	public static String[] readDictionary(String fileName) {
 		String[] dictionary = new String[3000];
-
 		In in = new In(fileName);
-
-		// Your code here
-
+		for(int i =0 ; i < dictionary.length; i++){
+			dictionary[i] =  in.readLine();
+		}
 		return dictionary;
 	}
 
 	public static boolean existInDictionary(String word, String []dictionary) {
-		// Your code here
+		
+		for(int i =0 ; i < dictionary.length; i++){
+			if( word == dictionary[i]){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static void breakHashTag(String hashtag, String[] dictionary) {
@@ -31,10 +37,17 @@ public class HashTagTokenizer {
         }
  
         int N = hashtag.length();
+		hashtag= hashtag.toLowerCase(); 
 
         for (int i = 1; i <= N; i++) {
-		
+			if( existInDictionary(hashtag.substring(0,i),dictionary) == true){
+				System.out.println(hashtag);
+			}
+			breakHashTag(hashtag.substring(0,i) , dictionary);
+			
+	
         }
+		
     }
 
 }
