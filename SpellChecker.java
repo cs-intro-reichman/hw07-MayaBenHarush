@@ -53,7 +53,7 @@ public class SpellChecker {
 			}
 
 		}
-		return dictionary[0];
+		return word;
 
 	}
 
