@@ -47,9 +47,11 @@ public class SpellChecker {
 		
 
 		for(int i = 0; i < dictionary.length; i++){
+			if(word.equals(dictionary[i])){
+				return word;
+			}
 			if(levenshtein( word, dictionary[i]) == threshold){
 				return dictionary[i];
-
 			}
 
 		}
