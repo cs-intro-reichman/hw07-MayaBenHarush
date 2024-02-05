@@ -50,9 +50,13 @@ public class SpellChecker {
 			if(word.equals(dictionary[i])){
 				return word;
 			}
-			if(levenshtein( word, dictionary[i]) == threshold){
-				return dictionary[i];
+			else{
+				if(levenshtein( word, dictionary[i]) == threshold){
+					return dictionary[i];
+				}
+
 			}
+			
 
 		}
 		return word;
