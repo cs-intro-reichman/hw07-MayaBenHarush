@@ -42,10 +42,11 @@ public class HashTagTokenizer {
         for (int i = 1; i <= hashtag.length(); i++) {
 			if( existInDictionary(hashtag.substring(0,i),dictionary) == true){
 				System.out.println(hashtag.substring(0,i));
-				hashtag= hashtag.substring(i);
+				breakHashTag(hashtag.substring(i) , dictionary);	
+				break;
 			}
-			breakHashTag(hashtag.substring(0,i) , dictionary);
 			
+
 	
         }
 		
