@@ -36,14 +36,15 @@ public class HashTagTokenizer {
             return;
         }
  
-        int N = hashtag.length();
+       
 		hashtag= hashtag.toLowerCase(); 
 
-        for (int i = 1; i <= N; i++) {
+        for (int i = 1; i <= hashtag.length(); i++) {
 			if( existInDictionary(hashtag.substring(0,i),dictionary) == true){
-				System.out.println(hashtag);
+				System.out.println(hashtag.substring(0,i));
+				hashtag= hashtag.substring(i);
 			}
-			breakHashTag(hashtag.substring(0,i+1) , dictionary);
+			breakHashTag(hashtag.substring(0,i) , dictionary);
 			
 	
         }
