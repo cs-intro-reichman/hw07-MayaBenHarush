@@ -43,24 +43,32 @@ public class SpellChecker {
 		
 	}
 
+
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		
-
+		if(existInDictionary(word, dictionary) == true){
+			return word;
+		}
 		for(int i = 0; i < dictionary.length; i++){
-			if(word.equals(dictionary[i])){
-				return word;
+		
+			if(levenshtein( word, dictionary[i]) == threshold){
+				return dictionary[i];
 			}
-			else{
-				if(levenshtein( word, dictionary[i]) == threshold){
-					return dictionary[i];
-				}
-
-			}
-			
 
 		}
 		return word;
 
 	}
 
+	public static boolean existInDictionary(String word, String []dictionary) {
+	
+		for(int i =0 ; i < dictionary.length; i++){
+			if( dictionary[i].equals(word)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
+
+
